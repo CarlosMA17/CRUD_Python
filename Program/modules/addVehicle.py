@@ -1,7 +1,7 @@
 def addVehicle(vehicles):
-    brand = input("añada la marca")
-    model = input("añada el modelo")
-    year = input("añada el año de fabricacion")
+    brand = input("añada la marca\n")
+    model = input("añada el modelo\n")
+    year = input("añada el año de fabricacion\n")
     
     vehicle = {
         "brand": brand,
