@@ -3,33 +3,39 @@ from modules.consultVehicle import consultVehicle
 from modules.deleteVehicle import deleteVehicle
 from modules.updateVehicles import updateVehicles
 
-vehicle1 = {
-    "brand" : "BMW",
-    "model" : "e36",
-    "year" : "1989"
-}
+exit = True
+vehicles = []
 
-exit = False
+def switch(case, vehicle, vehicles): 
+    match case: 
+        case "1": 
+            print(consultVehicle(vehicle))
+        case "2": 
+            vehicles = addVehicle(vehicles)
+        case "3": 
+            vehicles = deleteVehicle(vehicles, vehicle)
+        case "4": 
+            vehicles = updateVehicles(vehicles, vehicle)       
+        case "5": 
+            vehicles = ["finish"]
+
+print(vehicles)
+while exit:
+    option = input("escoja una opcion del programa:\n" +
+        "1.- mostrar la base de datos de vehiculos\n" + 
+        "2.- añadir un nuevo vehiculo\n" + 
+        "3.- eliminar un vehiculo de la base de datos\n" + 
+        "4.- actualizar la informacion de un vehiculo\n" +
+        "5.- salir del programa")
+    if option == "1" or option == "3" or option == "4":
+        model = input("introduzca el modelo")
+    else :
+        vehicle = {}
+    
     
 
-
-def switch(case, vehicle):
-    switch_dict = {
-        '1': consultVehicle(vehicles),
-        '2': addVehicle(vehicles),
-        '3': deleteVehicle(vehicles, vehicle),
-        '4': updateVehicles(vehicles, vehicle),        
-        '5': exit
-    } 
-vehicles = [vehicle1]
-print(vehicles)
-
-
-option = input("bienvenido al progarma, escoja una opcion:\n" +
-      "1.- mostrar la base de datos de vehiculos\n" + 
-      "2.- añadir un nuevo vehiculo\n" + 
-      "3.- eliminar un vehiculo de la base de datos\n" + 
-      "4.- actualizar la informacion de un vehiculo\n" +
-      "5.- salir del programa")
-
-switch(option)
+    switch(option, vehicle, vehicles)
+    if vehicles == ["finish"]:
+        exit = True
+    else:
+        print(vehicles)
