@@ -37,9 +37,9 @@ while exit:
     if option == "3" or option == "4":
         brand = input("introduzca la marca\n")
         model = input("introduzca el modelo\n")
+        year = input("introduzca el año\n")
         for vehicleF in vehicles:
-            if brand == vehicleF["brand"]:
-                if model == vehicleF["model"]:
+            if brand == vehicleF["brand"] and model == vehicleF["model"] and year == vehicleF["year"]:
                     vehicle = vehicleF
 
 
