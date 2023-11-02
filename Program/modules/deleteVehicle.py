@@ -1,8 +1,10 @@
-def deleteVehicle(vehicles, vehicleModel) :
+def deleteVehicle(vehicles, vehicle):
+
     comparationList = vehicles.copy()
-    for vehicle in vehicles: 
-        if vehicle["model"] == vehicleModel:
-            vehicles.remove(vehicle)
+
+    for vehicleF in vehicles: 
+        if vehicleF["model"] == vehicle["model"]:
+            vehicles.remove(vehicleF)
             print("se ha borrado el vehiculo")
 
     if len(comparationList) == len(vehicles):
