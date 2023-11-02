@@ -9,15 +9,22 @@ vehicles = []
 def switch(case, vehicle, vehicles): 
     match case: 
         case "1": 
-            consultVehicle(vehicle)
+            for vehicle in vehicles:
+                consultVehicle(vehicle)
+            return True
         case "2": 
             vehicles = addVehicle(vehicles)
+            return True
         case "3": 
             vehicles = deleteVehicle(vehicles, vehicle)
+            return True
         case "4": 
-            vehicles = updateVehicles(vehicles, vehicle)       
+            vehicles = updateVehicles(vehicles, vehicle) 
+            return True      
         case "5": 
             return False
+        case _:
+            print("no es valido")
 
 while exit:
     vehicle = {}
@@ -27,20 +34,24 @@ while exit:
         "3.- eliminar un vehiculo de la base de datos\n" + 
         "4.- actualizar la informacion de un vehiculo\n" +
         "5.- salir del programa\n")
-    if option == "1" or option == "3" or option == "4":
+    if option == "3" or option == "4":
+        brand = input("introduzca la marca\n")
         model = input("introduzca el modelo\n")
         for vehicleF in vehicles:
-            if model == vehicleF["model"]:
-                vehicle = vehicleF
+            if brand == vehicleF["brand"]:
+                if model == vehicleF["model"]:
+                    vehicle = vehicleF
 
 
     exit = switch(option, vehicle, vehicles)
-   
-    if vehicles == []:
-        print("la lista de vehiculos esta vacia\n")
-    elif option == "1": 
-        print("\n")
+    if exit == True:
+        if vehicles == []:
+            print("la lista de vehiculos esta vacia\n")
+        elif option == "1": 
+            print("\n")
+        else:
+            print("\nvehiculos: ", vehicles)
     else:
-        print("\nvehiculos: ", vehicles)
+        print("cerrando el programa...")
     
     
