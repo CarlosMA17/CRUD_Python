@@ -17,9 +17,7 @@ def switch(case, vehicle, vehicles):
         case "4": 
             vehicles = updateVehicles(vehicles, vehicle)       
         case "5": 
-            vehicles = "finish"
-
-print(vehicles)
+            return False
 
 while exit:
     vehicle = {}
@@ -36,10 +34,13 @@ while exit:
                 vehicle = vehicleF
 
 
-    switch(option, vehicle, vehicles)
+    exit = switch(option, vehicle, vehicles)
+   
     if vehicles == []:
         print("la lista de vehiculos esta vacia\n")
     elif option == "1": 
         print("\n")
     else:
         print("\nvehiculos: ", vehicles)
+    
+    
