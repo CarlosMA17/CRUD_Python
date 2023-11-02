@@ -3,11 +3,19 @@ from modules.consultVehicle import consultVehicle
 from modules.deleteVehicle import deleteVehicle
 from modules.updateVehicles import updateVehicles
 
-exit = True
-vehicles = []
+'''
+ The variables "exit" and  "vahicles" are created,
+one to control the loop and another to save all the vehicles.
+'''
+exit = True  
+vehicles = [] 
 
-def switch(case, vehicle, vehicles): 
-    match case: 
+'''
+The function is defined with the switch and passing the variables to modify
+'''
+
+def switch(case, vehicle, vehicles):                   
+    match case:                                         
         case "1": 
             for vehicle in vehicles:
                 consultVehicle(vehicle)
@@ -25,6 +33,13 @@ def switch(case, vehicle, vehicles):
             return False
         case _:
             print("no es valido")
+            
+'''
+The loop opens and the message that saves the user's 
+option is presented and if the car needs to be specified, 
+the user is also asked.
+'''
+
 
 while exit:
     vehicle = {}
@@ -43,6 +58,10 @@ while exit:
                     vehicle = vehicleF
 
 
+    '''
+    the switch is run and the list is displayed if necessary or a message is displayed
+    '''
+    
     exit = switch(option, vehicle, vehicles)
     if exit == True:
         if vehicles == []:
