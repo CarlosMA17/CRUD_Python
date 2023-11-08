@@ -19,11 +19,13 @@ def switch(case, vehicle, vehicles):
                      
     match case:                                         
         case "1": 
+            brand = input("indica la marca que desea buscar\n")
             i = 0
             for vehicle in vehicles:
-                i = i + 1
-                print(i)
-                consultVehicle(vehicle)  ## mostrar el indice de cada elemento y hacer una consulta de una marca determinada
+                if vehicle["brand"] == brand:
+                    i = i + 1
+                    print(i + ":")
+                    consultVehicle(vehicle)  ## mostrar el indice de cada elemento y hacer una consulta de una marca determinada
             return True
         
         case "2": 
